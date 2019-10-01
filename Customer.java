@@ -32,7 +32,7 @@ public class Customer
     //we use this to decrease the number of customers in line when cashiers are available
     public void setNumberofCustomersOrdering(int a)
     {
-        numberofCustomersOrdering-=a;
+        numberofCustomersOrdering=a;
     }
     //just to access the number of customers
     public int getNumberofCustomersOrdering()

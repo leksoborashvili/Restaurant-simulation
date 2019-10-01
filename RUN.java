@@ -22,7 +22,7 @@ public class RUN
         fw.write("number of max customers per minute = " + maxCustomers + ",");
         fw.write("number of Cashiers = " + numberofCashiers + ",");
         fw.write('\n');
-        //initializing general objects for the classes here
+        
         Customer customer = new Customer();
         Cashier cashier = new Cashier();
         int idleCashiers = 0;
@@ -47,23 +47,27 @@ public class RUN
         //the code runs 720 minutes simulation
         fw.write("Order Number,Time Taken,number of bagels,time finished,");
         fw.write('\n');
+        
+        boolean bool = true;
         //the restaurant will work until 120 so every order is satisfied but wont take any customers after its usual time.
-        while(t<720 || orderQ.size()>0)
+        while(t<720 || orderQ.size()>0 || bool)
         {
             
             //we control how many cashiers work at a time
             cashier.setNumberofCashiers(numberofCashiers);
             
             //in the start of every minute customers will be added in the line of cashiers.
-            if((t<720) && (t % 60 == 0))
+            if((t<720) && (t % 3 == 0))
             {
                 customer.increaseNumberofCustomersOrdering(customer.getNextCustomerWave(maxCustomers));
+                
             }
             
             //every minute cashier will serve one customer getting his order.
             //we need to check if the number of free cashiers is enough for the number of customers in a line
             //we will need to keep track of number of custoemrs ordering every minute. we will use it later
             int numberofCustomersOrdered = 0;
+            System.out.println(customer.getNumberofCustomersOrdering()+ " " + cashier.getNumberofCashiers());
             if(customer.getNumberofCustomersOrdering() > cashier.getNumberofCashiers())
                 {
                     customer.setNumberofCustomersOrdering(customer.getNumberofCustomersOrdering()-cashier.getNumberofCashiers());
@@ -128,6 +132,14 @@ public class RUN
             {
                 if(cooksArray.get(i).getTimetoFinishOrder()==0) {idleCooks++;}
             }
+            
+            if(t>720) bool=false;
+            
+            for(int i=0;i<numberofCooks;i++)
+            {
+                if(cooksArray.get(i).getTimetoFinishOrder()>0) bool=true;
+            }
+            
             t++;
            
         }
