@@ -1,22 +1,27 @@
 
 /**
  * To run the code you should run the main method of Run class and provide numberofcooks numberofCashiers and maxCustomers
- * "10","3","4"
+ * "10","3","20"
  * @Lekso Borashvili (your name)
  * @1.0.0 (a version number or a date)
  */
 import java.util.*;
 import java.io.FileWriter;
-public class RUN
+public class Run
 {
-    public static void main(String[] args) throws Exception
+    /**
+     * this method runs the main simulation.
+     * we have to give it number of cooks, cashiers and max customers that enter the store randomly
+     * type of the restaurant we are simulating
+     * the name of the file we want to print the data
+     * also the file name that we want to print the data in
+     */
+    public void Runner(int numberofCooks,int numberofCashiers, int maxCustomers,OrderType ordertype,String output ) throws Exception
     {
         int t=0;
-        int numberofCooks = Integer.parseInt(args[0]);
-        int numberofCashiers = Integer.parseInt(args[1]);
-        int maxCustomers = Integer.parseInt(args[2]);
         
-        FileWriter fw = new FileWriter("TimeTakenOutput.csv");
+        //this creates output file where we print the data
+        FileWriter fw = new FileWriter(output);
         
         fw.write("number of cooks =" + numberofCooks + ",");
         fw.write("number of max customers per minute = " + maxCustomers + ",");
@@ -41,15 +46,17 @@ public class RUN
         
         
         Queue <Order> orderQ = new ArrayDeque<Order>();
+        WaitTime wt = new WaitTime();
         //this bool will be used so that restaurant runs until every order is finished
         //but restaurant will not take orders after 12 hours of interval
         
         //the code runs 720 minutes simulation
-        fw.write("Order Number,Time Taken,number of bagels,time finished,");
+        fw.write("Order Number,Time Taken,Number of Ordered Things,Excess Wait Time ");
         fw.write('\n');
         
         boolean bool = true;
         //the restaurant will work until 120 so every order is satisfied but wont take any customers after its usual time.
+        
         while(t<720 || orderQ.size()>0 || bool)
         {
             
@@ -67,7 +74,6 @@ public class RUN
             //we need to check if the number of free cashiers is enough for the number of customers in a line
             //we will need to keep track of number of custoemrs ordering every minute. we will use it later
             int numberofCustomersOrdered = 0;
-            System.out.println(customer.getNumberofCustomersOrdering()+ " " + cashier.getNumberofCashiers());
             if(customer.getNumberofCustomersOrdering() > cashier.getNumberofCashiers())
                 {
                     customer.setNumberofCustomersOrdering(customer.getNumberofCustomersOrdering()-cashier.getNumberofCashiers());
@@ -85,10 +91,8 @@ public class RUN
             for(int i=0;i<numberofCustomersOrdered;i++)
             {
                 Order order = new Order(t);
-                order.setNumberofBagels(6);
-               //those orders are 
-               // order.setNumberofPizza(3);
-               // order.setNumberofHoagies(3);
+                order.setType(ordertype);
+                order.setNumberofOrderedItems();
                 order.setTimetoFinishOrder();
                 orderQ.add(order);
                 
@@ -109,9 +113,10 @@ public class RUN
                     fw.write(cooksArray.get(i).getOrder().getID()+",");
                     int timeTaken = t - cooksArray.get(i).getOrder().getOrderTime();
                     fw.write(timeTaken + ",");
-                    fw.write(cooksArray.get(i).getOrder().getNumberofBagels() + ",");
-                    fw.write(t + ",");
+                    fw.write(cooksArray.get(i).getOrder().getNumberofOrderedItems() + ",");
+                    fw.write(timeTaken - cooksArray.get(i).getOrder().getTimetoFinishOrder() + ",");
                     fw.write('\n');
+                    wt.addtoWaitTime(timeTaken - cooksArray.get(i).getOrder().getTimetoFinishOrder());
                     
                     cooksArray.get(i).setTimetoFinishOrder(0);
                 
@@ -144,8 +149,6 @@ public class RUN
            
         }
         
-        //System.out.println(idleCashiers/720);
-        //System.out.println(idleCooks/t);
         
         fw.close();
         

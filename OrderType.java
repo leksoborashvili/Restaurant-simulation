@@ -7,5 +7,5 @@
  */
 public enum OrderType
 {
-    PIZZA, HOAGIE, BAGELS
+    PIZZA, HOAGIE, BAGEL
 }
