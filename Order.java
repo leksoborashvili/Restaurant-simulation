@@ -17,9 +17,13 @@ public class Order
     
     private OrderType type;
     
+    private int price;
+    
     private int numberofOrderedItems;
     
     private int timetoFinishOrder;
+    
+    
     
     /**
      * Constructor that sets order time as well
@@ -29,6 +33,13 @@ public class Order
         orderTime = ot;
         orderCounter++;
         ID=orderCounter;
+    }
+    /**
+     * Returns price of the order
+     */
+    public int getPrice()
+    {
+        return price;
     }
     /**
      *  setting order time
@@ -80,11 +91,11 @@ public class Order
      */
     public void setTimetoFinishOrder()
     {
-      if(OrderType.PIZZA.equals(type)) timetoFinishOrder =  15 * numberofOrderedItems;
+      if(OrderType.PIZZA.equals(type)) {timetoFinishOrder =  15 * numberofOrderedItems; price = 16 * numberofOrderedItems;}
       
-      if(OrderType.BAGEL.equals(type)) timetoFinishOrder =   5 * numberofOrderedItems;
+      if(OrderType.BAGEL.equals(type)) {timetoFinishOrder =   5 * numberofOrderedItems; price = 2 * numberofOrderedItems;}
       
-      if(OrderType.HOAGIE.equals(type)) timetoFinishOrder = 7 * numberofOrderedItems;
+      if(OrderType.HOAGIE.equals(type)) {timetoFinishOrder = 7 * numberofOrderedItems; price = 6 * numberofOrderedItems;}
     }
     /**
      * decreases time to finish order by 1

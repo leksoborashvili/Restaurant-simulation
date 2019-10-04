@@ -1,0 +1,1 @@
+2019-10-03T22:57:20.594985500 - FirstRun - Average Wait Time = 0; Total Revenue = 1768 Average Number of Idle Cashiers = 2 Average NUmber of Idle Cooks = 6

@@ -1,4 +1,3 @@
-
 /**
  * To run the code you should run the main method of Run class and provide numberofcooks numberofCashiers and maxCustomers
  * "10","3","20"
@@ -16,7 +15,7 @@ public class Run
      * the name of the file we want to print the data
      * also the file name that we want to print the data in
      */
-    public void Runner(int numberofCooks,int numberofCashiers, int maxCustomers,OrderType ordertype,String output ) throws Exception
+    public Result Runner(int numberofCooks,int numberofCashiers, int maxCustomers,OrderType ordertype,String output ) throws Exception
     {
         int t=0;
         
@@ -32,7 +31,7 @@ public class Run
         Cashier cashier = new Cashier();
         int idleCashiers = 0;
         int idleCooks = 0;
-        
+        int totalRevenue = 0;
         
         ArrayList<Cooks> cooksArray = new ArrayList<Cooks>();
         //adding all the cooks to the arraylist if timetofinishorder is 0 then that cook is free
@@ -117,7 +116,7 @@ public class Run
                     fw.write(timeTaken - cooksArray.get(i).getOrder().getTimetoFinishOrder() + ",");
                     fw.write('\n');
                     wt.addtoWaitTime(timeTaken - cooksArray.get(i).getOrder().getTimetoFinishOrder());
-                    
+                    totalRevenue+=cooksArray.get(i).getOrder().getPrice();
                     cooksArray.get(i).setTimetoFinishOrder(0);
                 
                 } 
@@ -149,8 +148,14 @@ public class Run
            
         }
         
+        Result result = new Result();
+        result.setAverageWaitTime(wt.avgWaitTime());
+        result.setAverageNumberofIdleCooks(idleCooks/t);
+        result.setAverageNumberofIdleCashiers(idleCashiers/720);
+        result.setTotalRevenue(totalRevenue);
         
         fw.close();
         
+        return result;
     }
 }
