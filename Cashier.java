@@ -2,19 +2,29 @@
 /**
  * Write a description of class Cashier here.
  *
- * @author (your name)
+ * @Lekso Borashvili
  * @version (a version number or a date)
  */
-public class Cashier
+public class Cashier extends Staff
 {
-   private int numberofCashiers;
+   private int number;
+   private double sallary;
+   
+   public void setSallary(double x)
+   {
+        sallary=x;
+   }
+   public double getSallary()
+   {
+        return sallary;
+   }
    
    public void setNumberofCashiers(int a)
    {
-       numberofCashiers=a;
+       number=a;
    }
    public int getNumberofCashiers()
    {
-       return numberofCashiers;
+       return number;
    }
 }

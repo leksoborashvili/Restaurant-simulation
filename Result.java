@@ -2,7 +2,7 @@
 /**
  * Write a description of class Result here.
  *
- * @author (your name)
+ * @Lekso Borashvili
  * @version (a version number or a date)
  */
 public class Result

@@ -2,7 +2,7 @@
 /**
  * Write a description of class Order here.
  *
- * @author (your name)
+ * @Lekso Borashvili
  * @version (a version number or a date)
  */
 import java.util.Random;
@@ -26,7 +26,8 @@ public class Order
     
     
     /**
-     * Constructor that sets order time as well
+     * creates new order with new ID 
+     * @param ot The time item was ordered
      */
     public Order(int ot)
     {
@@ -35,42 +36,47 @@ public class Order
         ID=orderCounter;
     }
     /**
-     * Returns price of the order
+     * returns the price paid for the order
+     * @return Returns price of the order
      */
     public int getPrice()
     {
         return price;
     }
     /**
-     *  setting order time
+     * sets the time the item was ordered
+     *  @param ot time item was ordered
      */
     public void setOrderTime(int ot)
     {
         orderTime = ot;
     }
     /**
-     * returns order time
+     * Return the time items was ordered
+     * @return returns time the items was ordered
      */
     public int getOrderTime()
     {
         return orderTime;
     }
     /**
-     * sets the type of order(pizza,hoagie,bagel)
+     * sets type of the order
+     * @param s type of order(pizza,hoagie,bagel)
      */
     public void setType(OrderType s)
     {
         type=s;
     }
     /**
-     * returns enum of the order type
+     * Return the type of order
+     * @return returns enum type of the order
      */
     public OrderType getType()
     {
          return type;
     }
     /**
-     * setting number of ordered items
+     * Randomly sets the number of ordered items 
      */
     public void setNumberofOrderedItems()
     {
@@ -80,20 +86,21 @@ public class Order
         if(OrderType.HOAGIE.equals(type)) numberofOrderedItems = random.nextInt(4)+1;
     }
     /**
-     * returns the number of items the customer ordered
+     * return the number of items ordered
+     * @return returns the number of items the customer ordered
      */
     public int getNumberofOrderedItems()
     {
         return numberofOrderedItems;
     }
     /**
-     * sets time to finish order
+     * calculates and sets time order takes to finish
      */
     public void setTimetoFinishOrder()
     {
       if(OrderType.PIZZA.equals(type)) {timetoFinishOrder =  15 * numberofOrderedItems; price = 16 * numberofOrderedItems;}
       
-      if(OrderType.BAGEL.equals(type)) {timetoFinishOrder =   5 * numberofOrderedItems; price = 2 * numberofOrderedItems;}
+      if(OrderType.BAGEL.equals(type)) {timetoFinishOrder =   3 * numberofOrderedItems; price = 2 * numberofOrderedItems;}
       
       if(OrderType.HOAGIE.equals(type)) {timetoFinishOrder = 7 * numberofOrderedItems; price = 6 * numberofOrderedItems;}
     }
@@ -105,14 +112,16 @@ public class Order
         timetoFinishOrder--;
     }
     /**
-     * returns time to finish order
+     * returns necessary time to finish order
+     * @return returns time to finish order
      */
     public int getTimetoFinishOrder()
     {
         return timetoFinishOrder;
     }
     /**
-     * returns ID
+     * returns ID 
+     * @return returns order ID
      */
     public int getID()
     {

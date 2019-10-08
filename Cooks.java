@@ -2,25 +2,35 @@
 /**
  * Write a description of class Cooks here.
  *
- * @author (your name)
+ * @Lekso Borashvili
  * @version (a version number or a date)
  */
-public class Cooks
+public class Cooks extends Staff
 {
     private int ID;
-    private int numberofCooks;
+    private int number;
+    private double sallary;
+    
     private int timetoFinishOrder;
     private Order order;
     
     
+    public void setSallary(double x)
+    {
+        sallary=x;
+    }
+    public double getSallary()
+    {
+        return sallary;
+    }
     
     public void setNumberofCooks(int a)
     {
-        numberofCooks=a;
+        number=a;
     }
     public int getNumberofCooks()
     {
-        return numberofCooks;
+        return number;
     }
     public void setID(int a)
     {
