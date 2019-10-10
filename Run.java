@@ -20,6 +20,7 @@ public class Run
      */
     public Result Runner(int numberofCooks,int numberofCashiers, int maxCustomers,OrderType ordertype,String output ) throws Exception
     {
+        //t is how we keep track of the time 
         int t=0;
         
         //this creates output file where we print the data
@@ -40,6 +41,7 @@ public class Run
         int idleCashiers = 0;
         int idleCooks = 0;
         int totalRevenue = 0;
+        int orderVolume = 0;
         WaitTime wt = new WaitTime();
         
         
@@ -80,7 +82,7 @@ public class Run
             cashier.setNumberofCashiers(numberofCashiers);
             
             //in the start of every minute customers will be added in the line of cashiers.
-            if((t<720) && (t % 10 == 0))
+            if((t<720) && (t%2==0))
             {
                 customer.increaseNumberofCustomersOrdering(customer.getNextCustomerWave(maxCustomers));
                 
@@ -106,6 +108,7 @@ public class Run
             //we need to add numberOfCustomersOrdered orders in the queue that will be then used by the cooks
             for(int i=0;i<numberofCustomersOrdered;i++)
             {
+                orderVolume++;
                 Order order = new Order(t);
                 order.setType(ordertype);
                 order.setNumberofOrderedItems();
@@ -182,6 +185,7 @@ public class Run
         
         
         Result result = new Result();
+        result.setOrderVolume(orderVolume);
         result.setAverageWaitTime(wt.avgWaitTime());
         result.setAverageNumberofIdleCooks(idleCooks/t);
         result.setAverageNumberofIdleCashiers(idleCashiers/720);

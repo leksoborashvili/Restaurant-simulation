@@ -1,33 +1,24 @@
-Cooks = 4 Cashiers = 2 MaxCustomers = 3 OrderType = HOAGIE  averageWaitTime = 0; TotRev = 444; AvNumofIdleCashiers = 1; AvNumofIdleCooks = 2
-Cooks = 4 Cashiers = 2 MaxCustomers = 3 OrderType = PIZZA  averageWaitTime = 7; TotRev = 1892; AvNumofIdleCashiers = 1; AvNumofIdleCooks = 0
-Cooks = 4 Cashiers = 2 MaxCustomers = 3 OrderType = BAGEL  averageWaitTime = 0; TotRev = -34; AvNumofIdleCashiers = 1; AvNumofIdleCooks = 2
-Cooks = 4 Cashiers = 2 MaxCustomers = 5 OrderType = HOAGIE  averageWaitTime = 14; TotRev = 1662; AvNumofIdleCashiers = 1; AvNumofIdleCooks = 0
-Cooks = 4 Cashiers = 2 MaxCustomers = 5 OrderType = PIZZA  averageWaitTime = 187; TotRev = 3768; AvNumofIdleCashiers = 1; AvNumofIdleCooks = 0
-Cooks = 4 Cashiers = 2 MaxCustomers = 5 OrderType = BAGEL  averageWaitTime = 0; TotRev = 507; AvNumofIdleCashiers = 1; AvNumofIdleCooks = 1
-Cooks = 4 Cashiers = 2 MaxCustomers = 7 OrderType = HOAGIE  averageWaitTime = 143; TotRev = 2570; AvNumofIdleCashiers = 1; AvNumofIdleCooks = 0
-Cooks = 4 Cashiers = 2 MaxCustomers = 7 OrderType = PIZZA  averageWaitTime = 440; TotRev = 5739; AvNumofIdleCashiers = 1; AvNumofIdleCooks = 0
-Cooks = 4 Cashiers = 2 MaxCustomers = 7 OrderType = BAGEL  averageWaitTime = 12; TotRev = 1036; AvNumofIdleCashiers = 1; AvNumofIdleCooks = 0
-Cooks = 6 Cashiers = 2 MaxCustomers = 3 OrderType = HOAGIE  averageWaitTime = 0; TotRev = 365; AvNumofIdleCashiers = 1; AvNumofIdleCooks = 4
-Cooks = 6 Cashiers = 2 MaxCustomers = 3 OrderType = PIZZA  averageWaitTime = 0; TotRev = 1460; AvNumofIdleCashiers = 1; AvNumofIdleCooks = 2
-Cooks = 6 Cashiers = 2 MaxCustomers = 3 OrderType = BAGEL  averageWaitTime = 0; TotRev = -210; AvNumofIdleCashiers = 1; AvNumofIdleCooks = 4
-Cooks = 6 Cashiers = 2 MaxCustomers = 5 OrderType = HOAGIE  averageWaitTime = 0; TotRev = 1473; AvNumofIdleCashiers = 1; AvNumofIdleCooks = 2
-Cooks = 6 Cashiers = 2 MaxCustomers = 5 OrderType = PIZZA  averageWaitTime = 20; TotRev = 3685; AvNumofIdleCashiers = 1; AvNumofIdleCooks = 0
-Cooks = 6 Cashiers = 2 MaxCustomers = 5 OrderType = BAGEL  averageWaitTime = 0; TotRev = 347; AvNumofIdleCashiers = 1; AvNumofIdleCooks = 3
-Cooks = 6 Cashiers = 2 MaxCustomers = 7 OrderType = HOAGIE  averageWaitTime = 14; TotRev = 2646; AvNumofIdleCashiers = 1; AvNumofIdleCooks = 0
-Cooks = 6 Cashiers = 2 MaxCustomers = 7 OrderType = PIZZA  averageWaitTime = 201; TotRev = 5789; AvNumofIdleCashiers = 1; AvNumofIdleCooks = 0
-Cooks = 6 Cashiers = 2 MaxCustomers = 7 OrderType = BAGEL  averageWaitTime = 0; TotRev = 825; AvNumofIdleCashiers = 1; AvNumofIdleCooks = 2
-Cooks = 4 Cashiers = 4 MaxCustomers = 3 OrderType = HOAGIE  averageWaitTime = 0; TotRev = 389; AvNumofIdleCashiers = 3; AvNumofIdleCooks = 1
-Cooks = 4 Cashiers = 4 MaxCustomers = 3 OrderType = PIZZA  averageWaitTime = 8; TotRev = 1745; AvNumofIdleCashiers = 3; AvNumofIdleCooks = 0
-Cooks = 4 Cashiers = 4 MaxCustomers = 3 OrderType = BAGEL  averageWaitTime = 0; TotRev = -188; AvNumofIdleCashiers = 3; AvNumofIdleCooks = 2
-Cooks = 4 Cashiers = 4 MaxCustomers = 5 OrderType = HOAGIE  averageWaitTime = 17; TotRev = 1499; AvNumofIdleCashiers = 3; AvNumofIdleCooks = 0
-Cooks = 4 Cashiers = 4 MaxCustomers = 5 OrderType = PIZZA  averageWaitTime = 166; TotRev = 3553; AvNumofIdleCashiers = 3; AvNumofIdleCooks = 0
-Cooks = 4 Cashiers = 4 MaxCustomers = 5 OrderType = BAGEL  averageWaitTime = 0; TotRev = 268; AvNumofIdleCashiers = 3; AvNumofIdleCooks = 1
-Cooks = 4 Cashiers = 4 MaxCustomers = 7 OrderType = HOAGIE  averageWaitTime = 147; TotRev = 2446; AvNumofIdleCashiers = 3; AvNumofIdleCooks = 0
-Cooks = 4 Cashiers = 4 MaxCustomers = 7 OrderType = PIZZA  averageWaitTime = 486; TotRev = 5918; AvNumofIdleCashiers = 3; AvNumofIdleCooks = 0
-Cooks = 4 Cashiers = 4 MaxCustomers = 7 OrderType = BAGEL  averageWaitTime = 8; TotRev = 829; AvNumofIdleCashiers = 3; AvNumofIdleCooks = 0
-Cooks = 6 Cashiers = 4 MaxCustomers = 5 OrderType = HOAGIE  averageWaitTime = 0; TotRev = 1247; AvNumofIdleCashiers = 3; AvNumofIdleCooks = 2
-Cooks = 6 Cashiers = 4 MaxCustomers = 5 OrderType = PIZZA  averageWaitTime = 43; TotRev = 3748; AvNumofIdleCashiers = 3; AvNumofIdleCooks = 0
-Cooks = 6 Cashiers = 4 MaxCustomers = 5 OrderType = BAGEL  averageWaitTime = 0; TotRev = 135; AvNumofIdleCashiers = 3; AvNumofIdleCooks = 3
-Cooks = 6 Cashiers = 4 MaxCustomers = 5 OrderType = HOAGIE  averageWaitTime = 0; TotRev = 1274; AvNumofIdleCashiers = 3; AvNumofIdleCooks = 2
-Cooks = 6 Cashiers = 4 MaxCustomers = 5 OrderType = PIZZA  averageWaitTime = 31; TotRev = 3572; AvNumofIdleCashiers = 3; AvNumofIdleCooks = 0
-Cooks = 6 Cashiers = 4 MaxCustomers = 5 OrderType = BAGEL  averageWaitTime = 0; TotRev = 180; AvNumofIdleCashiers = 3; AvNumofIdleCooks = 3
+Cooks = 20 Cashiers = 2 MaxCustomers = 5 OrderType = HOAGIE  averageWaitTime = 2; TotRev = 8884; Order Volume = 726; AvNumofIdleCashiers = 0; AvNumofIdleCooks = 2
+Cooks = 20 Cashiers = 2 MaxCustomers = 5 OrderType = PIZZA  averageWaitTime = 29; TotRev = 22856; Order Volume = 729; AvNumofIdleCashiers = 0; AvNumofIdleCooks = 1
+Cooks = 20 Cashiers = 2 MaxCustomers = 5 OrderType = BAGEL  averageWaitTime = 0; TotRev = 3191; Order Volume = 733; AvNumofIdleCashiers = 0; AvNumofIdleCooks = 9
+Cooks = 18 Cashiers = 2 MaxCustomers = 5 OrderType = HOAGIE  averageWaitTime = 23; TotRev = 9270; Order Volume = 735; AvNumofIdleCashiers = 0; AvNumofIdleCooks = 1
+Cooks = 18 Cashiers = 2 MaxCustomers = 5 OrderType = PIZZA  averageWaitTime = 51; TotRev = 22100; Order Volume = 710; AvNumofIdleCashiers = 0; AvNumofIdleCooks = 1
+Cooks = 18 Cashiers = 2 MaxCustomers = 5 OrderType = BAGEL  averageWaitTime = 0; TotRev = 3301; Order Volume = 721; AvNumofIdleCashiers = 0; AvNumofIdleCooks = 7
+Cooks = 16 Cashiers = 2 MaxCustomers = 5 OrderType = HOAGIE  averageWaitTime = 49; TotRev = 8894; Order Volume = 705; AvNumofIdleCashiers = 0; AvNumofIdleCooks = 1
+Cooks = 16 Cashiers = 2 MaxCustomers = 5 OrderType = PIZZA  averageWaitTime = 110; TotRev = 22666; Order Volume = 724; AvNumofIdleCashiers = 0; AvNumofIdleCooks = 1
+Cooks = 16 Cashiers = 2 MaxCustomers = 5 OrderType = BAGEL  averageWaitTime = 0; TotRev = 3452; Order Volume = 719; AvNumofIdleCashiers = 0; AvNumofIdleCooks = 5
+Cooks = 14 Cashiers = 2 MaxCustomers = 5 OrderType = HOAGIE  averageWaitTime = 114; TotRev = 9122; Order Volume = 728; AvNumofIdleCashiers = 0; AvNumofIdleCooks = 0
+Cooks = 14 Cashiers = 2 MaxCustomers = 5 OrderType = PIZZA  averageWaitTime = 181; TotRev = 22576; Order Volume = 725; AvNumofIdleCashiers = 0; AvNumofIdleCooks = 0
+Cooks = 14 Cashiers = 2 MaxCustomers = 5 OrderType = BAGEL  averageWaitTime = 0; TotRev = 3553; Order Volume = 705; AvNumofIdleCashiers = 0; AvNumofIdleCooks = 3
+Cooks = 12 Cashiers = 2 MaxCustomers = 5 OrderType = HOAGIE  averageWaitTime = 190; TotRev = 9063; Order Volume = 712; AvNumofIdleCashiers = 0; AvNumofIdleCooks = 0
+Cooks = 12 Cashiers = 2 MaxCustomers = 5 OrderType = PIZZA  averageWaitTime = 252; TotRev = 22104; Order Volume = 712; AvNumofIdleCashiers = 0; AvNumofIdleCooks = 0
+Cooks = 12 Cashiers = 2 MaxCustomers = 5 OrderType = BAGEL  averageWaitTime = 5; TotRev = 3811; Order Volume = 721; AvNumofIdleCashiers = 0; AvNumofIdleCooks = 1
+Cooks = 10 Cashiers = 2 MaxCustomers = 5 OrderType = HOAGIE  averageWaitTime = 307; TotRev = 9139; Order Volume = 724; AvNumofIdleCashiers = 0; AvNumofIdleCooks = 0
+Cooks = 10 Cashiers = 2 MaxCustomers = 5 OrderType = PIZZA  averageWaitTime = 376; TotRev = 22170; Order Volume = 703; AvNumofIdleCashiers = 0; AvNumofIdleCooks = 0
+Cooks = 10 Cashiers = 2 MaxCustomers = 5 OrderType = BAGEL  averageWaitTime = 53; TotRev = 3847; Order Volume = 714; AvNumofIdleCashiers = 0; AvNumofIdleCooks = 0
+Cooks = 15 Cashiers = 2 MaxCustomers = 5 OrderType = HOAGIE  averageWaitTime = 88; TotRev = 9039; Order Volume = 723; AvNumofIdleCashiers = 0; AvNumofIdleCooks = 1
+Cooks = 15 Cashiers = 2 MaxCustomers = 5 OrderType = PIZZA  averageWaitTime = 140; TotRev = 22599; Order Volume = 722; AvNumofIdleCashiers = 0; AvNumofIdleCooks = 0
+Cooks = 15 Cashiers = 2 MaxCustomers = 5 OrderType = BAGEL  averageWaitTime = 0; TotRev = 3680; Order Volume = 736; AvNumofIdleCashiers = 0; AvNumofIdleCooks = 4
+Cooks = 13 Cashiers = 2 MaxCustomers = 5 OrderType = HOAGIE  averageWaitTime = 149; TotRev = 9035; Order Volume = 718; AvNumofIdleCashiers = 0; AvNumofIdleCooks = 0
+Cooks = 13 Cashiers = 2 MaxCustomers = 5 OrderType = PIZZA  averageWaitTime = 213; TotRev = 22415; Order Volume = 720; AvNumofIdleCashiers = 0; AvNumofIdleCooks = 0
+Cooks = 13 Cashiers = 2 MaxCustomers = 5 OrderType = BAGEL  averageWaitTime = 1; TotRev = 3694; Order Volume = 718; AvNumofIdleCashiers = 0; AvNumofIdleCooks = 2

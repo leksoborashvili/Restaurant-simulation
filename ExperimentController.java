@@ -4,19 +4,7 @@
  * calling simulation with different kinds of data that are gathered in csv files.
  *
  * @Lekso Borashvili
- * test cases:
- * 4,2,3
- * 4,2,5
- * 4,2,7
- * 6,2,3
- * 6,2,5
- * 6,2,7
- * 4,4,3
- * 4,4,5
- * 4,4,7
- * 6,4,5
- * 6,4,5
- * 6,4,7
+ * 
  * 
  * 
  */
@@ -37,22 +25,19 @@ public class ExperimentController
         FileWriter fw = new FileWriter("logger.txt");
         
         
-        int[] cases ={4,2,3,
-                      4,2,5,
-                      4,2,7,
-                      6,2,3,
-                      6,2,5,
-                      6,2,7,
-                      4,4,3,
-                      4,4,5,
-                      4,4,7,
-                      6,4,5,
-                      6,4,5,
-                      6,4,7};
+        int[] cases ={20,2,5,
+                      18,2,5,
+                      16,2,5,
+                      14,2,5,
+                      12,2,5,
+                      10,2,5,
+                      15,2,5,
+                      13,2,5,
+                      };
         
         
         
-        for(int j =0;j<33;j=j+3)
+        for(int j =0;j<24;j=j+3)
         {
             int numberofCooks = cases[j];
             int numberofCashiers = cases[j+1];
@@ -72,7 +57,7 @@ public class ExperimentController
                 res.setTotalRevenue(0);
                 res.setAverageNumberofIdleCashiers(0);
                 res.setAverageNumberofIdleCooks(0);
-                //Each case is run 10 times and answer is average
+                //Each case is run 10 times and answer is average of all 10 cases
                 for(int i=0;i<10;i++)
                 {
                     Result result = new Result();
@@ -81,9 +66,10 @@ public class ExperimentController
                     res.setTotalRevenue(res.getTotalRevenue()+result.getTotalRevenue());
                     res.setAverageNumberofIdleCashiers(res.getAverageNumberofIdleCashiers()+result.getAverageNumberofIdleCashiers());   
                     res.setAverageNumberofIdleCooks(res.getAverageNumberofIdleCooks()+result.getAverageNumberofIdleCooks());
+                    res.setOrderVolume(res.getOrderVolume()+result.getOrderVolume());
                 }
             
-                //this logs the average data of every case
+                //this logs the average data of every scenario
                 LocalDateTime rightNow = LocalDateTime.now(); 
                 fw.write( "Cooks = " +numberofCooks);
                 fw.write(" Cashiers = " + numberofCashiers);
@@ -91,8 +77,10 @@ public class ExperimentController
                 fw.write(" OrderType = " + orderType);
                 fw.write("  averageWaitTime = " + res.getAverageWaitTime()/10 + "; ");
                 fw.write("TotRev = " + res.getTotalRevenue()/10 + "; ");
+                fw.write("Order Volume = " + res.getOrderVolume()/10 + "; ");
                 fw.write("AvNumofIdleCashiers = " + res.getAverageNumberofIdleCashiers()/10 + "; ");
                 fw.write("AvNumofIdleCooks = " + res.getAverageNumberofIdleCooks()/10);
+                
                 fw.write('\n');
             }    
         }

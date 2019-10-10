@@ -1,6 +1,7 @@
  
 /**
- * Write a description of class Order here.
+ * Keeps track of information about order
+ * ID, order time, type(OrderType), price, number of ordered items, time to finish order
  *
  * @Lekso Borashvili
  * @version (a version number or a date)
@@ -98,7 +99,7 @@ public class Order
      */
     public void setTimetoFinishOrder()
     {
-      if(OrderType.PIZZA.equals(type)) {timetoFinishOrder =  15 * numberofOrderedItems; price = 16 * numberofOrderedItems;}
+      if(OrderType.PIZZA.equals(type)) {timetoFinishOrder =  10 * numberofOrderedItems; price = 17 * numberofOrderedItems;}
       
       if(OrderType.BAGEL.equals(type)) {timetoFinishOrder =   3 * numberofOrderedItems; price = 2 * numberofOrderedItems;}
       
