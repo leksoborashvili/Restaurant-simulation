@@ -1,4 +1,5 @@
 
+
 /**
  * This class cotrolls the experiment.
  * calling simulation with different kinds of data that are gathered in csv files.
@@ -45,12 +46,12 @@ public class ExperimentController
             OrderType orderType = null;
             for(int k=0;k<3;k++)
             {
-                //creating the output file using case number and restaurant type
-                String output = "output" + Integer.toString(j/3);
-                if(k==0) {output = output + "HOAGIE"; orderType = OrderType.HOAGIE;}
-                if(k==1) {output = output + "PIZZA"; orderType = OrderType.PIZZA;}
-                if(k==2) {output = output + "BAGEL"; orderType = OrderType.BAGEL;}
-                output+=".csv";
+                
+                if(k==0) { orderType = OrderType.HOAGIE;}
+                if(k==1) { orderType = OrderType.PIZZA;}
+                if(k==2) { orderType = OrderType.BAGEL;}
+                
+                String output = NameGenerator.generateCSV(j/3,orderType);
                 //result is collected in this object
                 Result res = new Result();
                 res.setAverageWaitTime(0);
@@ -61,7 +62,7 @@ public class ExperimentController
                 for(int i=0;i<10;i++)
                 {
                     Result result = new Result();
-                    result = run.Runner(numberofCooks,numberofCashiers,numberofMaxCustomers,orderType,output);
+                    result = run.Runner(numberofCooks,numberofCashiers,numberofMaxCustomers,orderType,output,fw);
                     res.setAverageWaitTime(res.getAverageWaitTime()+result.getAverageWaitTime());
                     res.setTotalRevenue(res.getTotalRevenue()+result.getTotalRevenue());
                     res.setAverageNumberofIdleCashiers(res.getAverageNumberofIdleCashiers()+result.getAverageNumberofIdleCashiers());   
@@ -69,17 +70,26 @@ public class ExperimentController
                     res.setOrderVolume(res.getOrderVolume()+result.getOrderVolume());
                 }
             
-                //this logs the average data of every scenario
-                LocalDateTime rightNow = LocalDateTime.now(); 
-                fw.write( "Cooks = " +numberofCooks);
-                fw.write(" Cashiers = " + numberofCashiers);
-                fw.write(" MaxCustomers = " + numberofMaxCustomers);
-                fw.write(" OrderType = " + orderType);
-                fw.write("  averageWaitTime = " + res.getAverageWaitTime()/10 + "; ");
-                fw.write("TotRev = " + res.getTotalRevenue()/10 + "; ");
-                fw.write("Order Volume = " + res.getOrderVolume()/10 + "; ");
-                fw.write("AvNumofIdleCashiers = " + res.getAverageNumberofIdleCashiers()/10 + "; ");
-                fw.write("AvNumofIdleCooks = " + res.getAverageNumberofIdleCooks()/10);
+                //this logs the average data of every scenario 
+                fw.write("AVERAGE DATA For Scenario #"+j/3);
+                fw.write('\n');
+                fw.write("Cooks = " +numberofCooks);
+                fw.write('\n');
+                fw.write("Cashiers = " + numberofCashiers);
+                fw.write('\n');
+                fw.write("MaxCustomers = " + numberofMaxCustomers);
+                fw.write('\n');
+                fw.write("OrderType = " + orderType);
+                fw.write('\n');
+                fw.write("averageWaitTime = " + res.getAverageWaitTime()/10 + ";");
+                fw.write('\n');
+                fw.write("TotRev = " + res.getTotalRevenue()/10 + ";");
+                fw.write('\n');
+                fw.write("Order Volume = " + res.getOrderVolume()/10 + ";");
+                fw.write('\n');
+                fw.write("AvNumofIdleCashiers = " + res.getAverageNumberofIdleCashiers()/10 + ";");
+                fw.write('\n');
+                fw.write("AvNumofIdleCooks =" + res.getAverageNumberofIdleCooks()/10);
                 
                 fw.write('\n');
             }    

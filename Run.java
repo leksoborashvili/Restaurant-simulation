@@ -16,27 +16,35 @@ public class Run
      * @param maxCustomers The max number of customers that can enter the retaurant per minute
      * @param ordertype Type of the order
      * @param output Name of the file output should be printed
+     * @param log object that prints in logger file 
      * @return returns Result class object containing average wait time, Revenue, Number of Idle cooks and cashiers.
      */
-    public Result Runner(int numberofCooks,int numberofCashiers, int maxCustomers,OrderType ordertype,String output ) throws Exception
+    public Result Runner(int numberofCooks,int numberofCashiers, int maxCustomers,OrderType ordertype,String output,FileWriter log) throws Exception
     {
         //t is how we keep track of the time 
         int t=0;
         
+        //logger
+        log.write(output + " is created");
+        log.write('\n');
         //this creates output file where we print the data
         FileWriter fw = new FileWriter(output);
         fw.write("number of cooks =" + numberofCooks + ",");
         fw.write("number of max customers per minute = " + maxCustomers + ",");
         fw.write("number of Cashiers = " + numberofCashiers + ",");
         fw.write('\n');
-
         
+        //logger
+        log.write("Customer and cashier objects are created sallary is set");
+        log.write('\n');
         //objects of customer and cashier class that will be used during the simulation
         Customer customer = new Customer();
         Cashier cashier = new Cashier();
         cashier.setSallary(7.25);
         
-        
+        //logger
+        log.write("Variables for average data are generated");
+        log.write('\n');
         //we keep track of data using these variables that will be returned as a result
         int idleCashiers = 0;
         int idleCooks = 0;
@@ -44,7 +52,9 @@ public class Run
         int orderVolume = 0;
         WaitTime wt = new WaitTime();
         
-        
+        //logger
+        log.write("Array of cooks is generated");
+        log.write('\n');
         //we have cooks arraylist to keep track of all the cooks
         ArrayList<Cooks> cooksArray = new ArrayList<Cooks>();
         
@@ -60,24 +70,36 @@ public class Run
             cooksArray.add(cook);
         }
         
-        //this 
+        //logger
+        log.write("Queue for the orders is generated");
+        log.write('\n');
+        //this is queue for the orders 
         Queue <Order> orderQ = new ArrayDeque<Order>();
         
-        
+        //Order counter needs to be static which causes it to increase for every run
+        //So we need to nullify it before every simulation
+        Order ordercounternullifier = new Order();
+        ordercounternullifier.nullifyOrderCounter();
         
         //the order 
         fw.write("Order Number,Time Taken,Number of Ordered Things,Excess Wait Time ");
         fw.write('\n');
         
         //this bool will be used so that restaurant runs until every order is finished
-        //but restaurant will not take orders after 12 hours of interval
-        boolean bool = true;
-        //the restaurant will work until 120 so every order is satisfied but wont take any customers after its usual time.
         
+        //but restaurant will not take orders after 12 hours
+        boolean bool = true;
+        //the restaurant will work until every order is satisfied but wont take any customers after its usual working time.
         //the code runs 720 minutes simulation
+        
+        //logger
+        log.write("The simulation starts");
+        log.write('\n');
         while(t<720 || orderQ.size()>0 || bool)
         {
-            
+            //logger
+            log.write("t = " + t);
+            log.write('\n');
             //we control how many cashiers work at a time
             cashier.setNumberofCashiers(numberofCashiers);
             
@@ -105,6 +127,9 @@ public class Run
             //here is idle cashiers counted
             if(t<720)idleCashiers=idleCashiers+cashier.getNumberofCashiers()-numberofCustomersOrdered;
             
+            //logger
+            log.write("Number of customers ordered = " + numberofCustomersOrdered);
+            log.write('\n');
             //we need to add numberOfCustomersOrdered orders in the queue that will be then used by the cooks
             for(int i=0;i<numberofCustomersOrdered;i++)
             {
@@ -114,7 +139,9 @@ public class Run
                 order.setNumberofOrderedItems();
                 order.setTimetoFinishOrder();
                 orderQ.add(order);
-                
+                //logger
+                log.write("Order #" + order.getID() + " is generated");
+                log.write('\n');
             }
             
             //here cooks take orders and those who are busy decrease the time of timetofinish order by 1
@@ -123,7 +150,15 @@ public class Run
                 int timetoFinishOrder = cooksArray.get(i).getTimetoFinishOrder();
                 
                 //here nothing happens except time to finish order is reduced by 1
-                if(timetoFinishOrder > 1) {cooksArray.get(i).setTimetoFinishOrder(timetoFinishOrder-1); continue;}
+                if(timetoFinishOrder > 1) 
+                {
+                    //logger
+                    log.write("Cook #" + cooksArray.get(i).getID() + " is cooking");
+                    log.write('\n');
+                    
+                    cooksArray.get(i).setTimetoFinishOrder(timetoFinishOrder-1); 
+                    continue;
+                }
                 
                 
                 //this is the case when the cook finishes the order so we need to gather data
@@ -146,7 +181,11 @@ public class Run
                     
                     //sets the cook that finished the order free
                     cooksArray.get(i).setTimetoFinishOrder(0);
-                
+                    
+                    //logger
+                    log.write("Cook #" + cooksArray.get(i).getID() + "finished cooking order #" +
+                    cooksArray.get(i).getOrder().getID());
+                    log.write('\n');
                 } 
                 
                 //if cook is free he gets a new order if there are any available
@@ -157,6 +196,11 @@ public class Run
                         Order order = orderQ.remove();
                         cooksArray.get(i).setOrder(order);
                         cooksArray.get(i).setTimetoFinishOrder(order.getTimetoFinishOrder());
+                        
+                        //logger
+                        log.write("Cook #" + cooksArray.get(i).getID() + " starts cooking order #" + 
+                        cooksArray.get(i).getOrder().getID());
+                        log.write('\n');
                         continue;
                     }
                 }

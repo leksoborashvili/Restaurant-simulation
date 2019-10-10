@@ -10,11 +10,12 @@ import java.util.Random;
 public class Order
 {
     private int ID;
+    private static int orderCounter=0;
     
     //when the order is taken
     private int orderTime;
     
-    private static int orderCounter=0;
+    
     
     private OrderType type;
     
@@ -24,8 +25,18 @@ public class Order
     
     private int timetoFinishOrder;
     
-    
-    
+    /**
+     * Nullifies the number of items ordered before
+     */
+    public void nullifyOrderCounter()
+    {
+        orderCounter=0;
+    }
+    /**
+     * constructor for order class
+     */
+    public Order()
+    {}
     /**
      * creates new order with new ID 
      * @param ot The time item was ordered
